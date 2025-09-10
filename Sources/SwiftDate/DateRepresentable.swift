@@ -255,6 +255,7 @@ public protocol DateRepresentable {
 
 	/// Convert a date to a string representation relative to another reference date (or current
 	/// if not passed).
+    @available(macOS 10.15, iOS 13.0, watchOS 6.0, tvOS 13.0, *)
 	func toRelative(since: DateInRegion?,
                     dateTimeStyle: RelativeDateTimeFormatter.DateTimeStyle,
                     unitsStyle: RelativeDateTimeFormatter.UnitsStyle) -> String
@@ -519,7 +520,8 @@ public extension DateRepresentable {
 		let fixedDate = DateInRegion(date.date, region: fixedRegion)
 		return DateToStringStyles.custom(format).toString(fixedDate)
 	}
-
+    
+    @available(macOS 10.15, iOS 13.0, watchOS 6.0, tvOS 13.0, *)
     func toRelative(since: DateInRegion?,
                     dateTimeStyle: RelativeDateTimeFormatter.DateTimeStyle = .named,
                     unitsStyle: RelativeDateTimeFormatter.UnitsStyle = .short) -> String {
